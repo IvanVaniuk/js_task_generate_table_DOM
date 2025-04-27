@@ -359,37 +359,45 @@ console.log(people); // you can remove it
 
 const table = document.querySelector('.dashboard');
 
-people.forEach(person => {
-  const GENDER = person.sex;
-  const NAME = person.name;
-  const BORN = person.born;
-  const DIED = person.died;
+if (table) {
+  people.forEach((person) => {
+    const GENDER = person.sex;
+    const NAME = person.name;
+    const BORN = person.born;
+    const DIED = person.died;
 
-  const row = document.createElement('tr');
+    const row = document.createElement('tr');
 
-  const nameCell = document.createElement('td');
-  nameCell.textContent = NAME;
-  row.append(nameCell);
+    const nameCell = document.createElement('td');
 
-  const genderCell = document.createElement('td');
-  genderCell.textContent = GENDER === 'm' ? 'Male' : 'Female';
-  row.append(genderCell);
+    nameCell.textContent = NAME;
+    row.append(nameCell);
 
-  const bornCell = document.createElement('td');
-  bornCell.textContent = BORN;
-  row.append(bornCell);
+    const genderCell = document.createElement('td');
 
-  const diedCell = document.createElement('td');
-  diedCell.textContent = DIED;
-  row.append(diedCell);
+    genderCell.textContent = GENDER === 'm' ? 'Male' : 'Female';
+    row.append(genderCell);
 
-  const ageCell = document.createElement('td');
-  ageCell.textContent = DIED - BORN;
-  row.append(ageCell);
+    const bornCell = document.createElement('td');
 
-  const centuryCell = document.createElement('td');
-  centuryCell.textContent = Math.ceil(DIED / 100);
-  row.append(centuryCell);
+    bornCell.textContent = BORN;
+    row.append(bornCell);
 
-  table.append(row);
-});
+    const diedCell = document.createElement('td');
+
+    diedCell.textContent = DIED;
+    row.append(diedCell);
+
+    const ageCell = document.createElement('td');
+
+    ageCell.textContent = DIED - BORN;
+    row.append(ageCell);
+
+    const centuryCell = document.createElement('td');
+
+    centuryCell.textContent = Math.ceil(DIED / 100);
+    row.append(centuryCell);
+
+    table.append(row);
+  });
+}
